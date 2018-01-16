@@ -11,3 +11,16 @@ This docker app uses [pimutils/vdirsyncer](https://vdirsyncer.pimutils.org/) to 
 ```docker-compose up -d```
 
 Be happy! The container will synchronize your calendars/addressbooks every 15 minutes.
+
+### docker-compose example
+
+```
+version: '3'
+services:
+
+  worker:
+    image: kaergel/vdirsyncer
+    volumes:
+      - ./your_config_file:/home/vds/.config/vdirsyncer/config
+    restart: always
+```
