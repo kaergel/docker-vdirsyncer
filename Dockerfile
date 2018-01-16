@@ -9,6 +9,5 @@ RUN apt-get update; \
     pip3 install vdirsyncer
 USER vds
 RUN mkdir -p /home/vds/.config/vdirsyncer/
-ADD config /home/vds/.config/vdirsyncer/
-RUN vdirsyncer discover
-CMD ["/usr/local/bin/vdirsyncer","sync"]
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]

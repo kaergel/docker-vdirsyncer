@@ -1,0 +1,8 @@
+version: '3'
+services:
+
+  worker:
+    image: kaergel/vdirsyncer
+    volumes:
+      - ./config:/home/vds/.config/vdirsyncer/config
+    restart: always
